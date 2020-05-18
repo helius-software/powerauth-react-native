@@ -1,6 +1,5 @@
 //
 //  PowerAuth.m
-//  ePosta
 //
 //  Created by User on 6.5.20.
 //  Copyright © 2020 Facebook. All rights reserved.

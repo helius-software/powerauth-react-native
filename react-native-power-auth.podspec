@@ -16,10 +16,11 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "9.0" }
   s.source       = { :git => "https://github.com/helius-software/powerauth-react-native.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,c,m,swift}"
+  s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
+  s.dependency "PowerAuth2"
   # ...
   # s.dependency "..."
 end

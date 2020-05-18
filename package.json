@@ -2,7 +2,7 @@
   "name": "react-native-power-auth",
   "title": "React Native Power Auth",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Wultra Powerauth React Native component for iOS + Android",
   "main": "index.js",
   "files": [
     "README.md",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-power-auth.git",
-    "baseUrl": "https://github.com/github_account/react-native-power-auth"
+    "url": "git+https://github.com/helius-software/powerauth-react-native.git",
+    "baseUrl": "https://github.com/helius-software/powerauth-react-native"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
     "name": "Helius Systems",
-    "email": "yourname@email.com"
+    "email": "terriprifti@gmail.com"
   },
   "license": "Apache 2.0",
   "licenseFilename": "LICENSE",
