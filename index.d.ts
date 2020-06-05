@@ -46,7 +46,7 @@ declare module "react-native-powerauth" {
     
     export function removeActivationLocal(): void;
     
-    export function hasValidActivation(): Promise<bool>;
+    export function hasValidActivation(): Promise<boolean>;
     
     export function fetchActivationStatus(): Promise<ActivationStatus>;
 }

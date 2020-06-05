@@ -110,4 +110,38 @@ RCT_REMAP_METHOD(fetchActivationStatus,
   }];
 }
 
+RCT_EXPORT_METHOD(requestSignature:
+                  (NSString*) userPassword
+                  withRequestmethod: (NSString*) requestMethod
+                          withUriId: (NSString*) uriId
+                    withRequestData: (NSDictionary*) reqData
+                  requestSignatureResolver : (RCTPromiseResolveBlock) resolve
+                  requestSignature : (RCTPromiseRejectBlock) reject) {
+  
+  PowerAuthAuthentication *auth = [[PowerAuthAuthentication alloc] init];
+  auth.usePossession = true;
+  auth.usePassword = userPassword;
+  auth.useBiometry = false;
+  
+  NSData* requestData = [NSKeyedArchiver archivedDataWithRootObject:reqData];
+  
+  NSLog(@"Request data log: %@", requestData);
+  
+  @try {
+    NSError* errorMessage = [NSError errorWithDomain:@"com.heliussystems.eposta" code:200 userInfo:@{NSLocalizedDescriptionKey: @""}];
+    
+   PA2AuthorizationHttpHeader* signature = [[PowerAuthSDK sharedInstance] requestSignatureWithAuthentication:auth method:requestMethod uriId:uriId body:requestData error: &errorMessage];
+    
+    NSDictionary *response = @{
+      @"httpHeaderKey": signature.key,
+      @"httpHeaderValue": signature.value
+    };
+    
+    return resolve(response);
+    
+  } @catch (NSException *exception) {
+    return reject(@"Error", exception.reason, nil);
+  }
+}
+
 @end
